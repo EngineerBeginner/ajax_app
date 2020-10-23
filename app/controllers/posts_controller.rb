@@ -1,12 +1,11 @@
 class PostsController < ApplicationController
-  def index  #indexアクション（一覧表示ページを表示するリクエストに対応して動く）
-    @posts = Post.all #テーブルの全てのデータを取得する
+  def index  
+    @posts = Post.all 
   end
 
-  def new
-  end
 
   def create
     Post.create(content: params[:content])
+    redirect_to action: :index
   end
 end
